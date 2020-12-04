@@ -2,6 +2,7 @@ import tweepy
 import time
 from sys import argv
 from private_keys import keys
+import random
 
 
 auth = tweepy.OAuthHandler(keys['consumer_key'], keys['consumer_secret'])
@@ -72,4 +73,14 @@ def unfollow_nonfollowers():
 
 
 if __name__ == '__main__':
-    auto_like()
+    queries = [
+        '#photography',
+        '#cars',
+        '#reactjs',
+        '#python',
+        '#nodejs',
+        '#puppies',
+        '#food',
+    ]
+    while True:
+        auto_like(random.choice(queries), 1)
