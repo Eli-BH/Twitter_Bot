@@ -36,7 +36,20 @@ Just add the keys, and run the file.
 
 ## Usage <a name = "usage"></a>
 
-v1 - change the 'auto_like()' function to any of the other functions to perform the operation.
+v 0.5 - Run python3 twitter_bot.py with an argument to start the function
+for example run python3 twitter_bot.py count, to run the count() function.
+the auto() function needs a second argument to use as the search query.
+example python3 twitter_bot.py #photography #puppies #cars.
+you can use multiple arguments, the bot will randomly choose one of the inputed
+queries every 5 likes.
+The functional arguments are
+-auto \*requires additional arguments
+-followers
+-followAll
+-counts
+-unfollow
+
+v 0.1 - change the 'auto_like()' function to any of the other functions to perform the operation.
 unfollow_nonfollowers(): unfollows all non following friends
 follow_followers(): follows all following friends
 check_followers(): outputs the current followers.
