@@ -1,6 +1,4 @@
-# Project Title
-
-Python Twitter Bot
+# Python Twitter Bot
 
 ## Table of Contents
 
