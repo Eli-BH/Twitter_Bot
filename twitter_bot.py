@@ -58,7 +58,7 @@ def follow_followers():
 
 
 #  unfollows anyone that is not following me
-def unfollow_nonfollowers():
+def unfollow_non_followers():
     following_me = []
     friends = []
     for follower in limit_handle(tweepy.Cursor(api.followers).items()):
@@ -73,14 +73,15 @@ def unfollow_nonfollowers():
 
 
 if __name__ == '__main__':
+
     queries = [
         '#photography',
-        '#cars',
         '#reactjs',
-        '#python',
         '#nodejs',
         '#puppies',
         '#food',
     ]
-    while True:
-        auto_like(random.choice(queries), 1)
+    if argv[1]:
+        queries = argv[1:]
+
+    auto_like(random.choice(queries), 10)
