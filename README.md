@@ -43,11 +43,12 @@ example python3 twitter_bot.py #photography #puppies #cars.
 you can use multiple arguments, the bot will randomly choose one of the inputed
 queries every 5 likes.
 The functional arguments are
--auto \*requires additional arguments
--followers
--followAll
--counts
--unfollow
+
+- auto \*requires additional arguments
+- followers
+- followAll
+- counts
+- unfollow
 
 v 0.1 - change the 'auto_like()' function to any of the other functions to perform the operation.
 unfollow_nonfollowers(): unfollows all non following friends
