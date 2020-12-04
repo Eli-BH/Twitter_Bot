@@ -23,9 +23,7 @@ def limit_handle(cursor):
             break
 
 
-# check follower amount function
-
-
+# check followers function
 def check_followers():
     for follower in limit_handle(tweepy.Cursor(api.followers).items()):
         if follower:
@@ -73,6 +71,7 @@ def unfollow_non_followers():
 
 
 if __name__ == '__main__':
+    print('TwitterBot running...')
 
     queries = [
         '#photography',
@@ -81,7 +80,31 @@ if __name__ == '__main__':
         '#puppies',
         '#food',
     ]
-    if argv[1]:
-        queries = argv[1:]
+    while True:
+        try:
+            if argv[1] == 'auto':
+                queries = argv[2:]
+                auto_like(random.choice(queries), 10)
 
-    auto_like(random.choice(queries), 10)
+            if str(argv[1]) == 'followers':
+                check_followers()
+                break
+
+            if argv[1] == 'followAll':
+                follow_followers()
+                break
+
+            if argv[1] == 'unfollow':
+                unfollow_non_followers()
+                break
+
+            if argv[1] == 'counts':
+                print(
+                    f'{api.me().name} has {len(api.friends())} friends, and {len(api.followers())} followers.')
+                break
+
+        except IndexError:
+            print('Please provide a function like so (python3 main.py counts):')
+            print('\t- auto \n\t- followers \n\t- followAll \n\t- unfollow \n\t- counts')
+            print('\t- auto (requires queries inputs: python3 main.py auto #photography)')
+            break
